@@ -11,13 +11,6 @@ body {
 html{
   min-height: 100%;
 }
-/*To consider later 
-
-  background: linear-gradient(
-    to right,
-    rgb(184, 106, 218) 0%,
-    rgb(118, 14, 187) 100%
-  );*/
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

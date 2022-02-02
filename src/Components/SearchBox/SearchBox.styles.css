@@ -6,8 +6,8 @@
     line-height: 30px;
     margin-bottom: 30px;
     border-radius: 5px;
-    background: #efd0fd;
+    background: rgba(218, 186, 233, 0.8);
     opacity: .7;
-    color: black;
+    color: #000;
     font-size: 20px;
 }

@@ -1,38 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import CardList from './Components/CardList/CardList'
 import SearchBox from './Components/SearchBox/SearchBox';
 
-class App extends React.Component {
-  constructor() {
-    super();
+function App() {
+  const [cats, setCats] = useState([]);
+  const [searchField, setSearchField] = useState('')
+  const filteredCats = cats.filter(cat => cat.name.toLowerCase().includes(searchField.toLowerCase()));
 
-    this.state = {
-      cats: [],
-      searchField: ''
-    }
-  }
-  componentDidMount() {
+  useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
-      .then(users => this.setState({ cats: users }));
-  }
+      .then(users => { setCats(users) });
+  }, [])
 
-  render() {
-    const { cats, searchField } = this.state;
-    const filteredCats = cats.filter(cat => cat.name.toLowerCase().includes(searchField.toLowerCase()));
-
-    return (
-      <div className="App">
-        <h1 className="title"><span>Catgenda App</span></h1>
-        <SearchBox
-          placeholder="Search user"
-          handleChange={e => this.setState({ searchField: e.target.value })}
-        />
-        <CardList cats={filteredCats} />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <h1 className="title"><span>Catgenda App</span></h1>
+      <SearchBox
+        placeholder="Search user"
+        handleChange={e => setSearchField(e.target.value)}
+      />
+      <CardList cats={filteredCats} />
+    </div>
+  );
 }
+
 
 export default App;
