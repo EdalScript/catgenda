@@ -8,19 +8,19 @@ class App extends React.Component {
     super();
 
     this.state = {
-      monsters: [],
+      cats: [],
       searchField: ''
     }
   }
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
-      .then(users => this.setState({ monsters: users }));
+      .then(users => this.setState({ cats: users }));
   }
 
   render() {
-    const { monsters, searchField } = this.state;
-    const filteredMonsters = monsters.filter(monster => monster.name.toLowerCase().includes(searchField.toLowerCase()));
+    const { cats, searchField } = this.state;
+    const filteredCats = cats.filter(cat => cat.name.toLowerCase().includes(searchField.toLowerCase()));
 
     return (
       <div className="App">
@@ -29,7 +29,7 @@ class App extends React.Component {
           placeholder="Search user"
           handleChange={e => this.setState({ searchField: e.target.value })}
         />
-        <CardList monsters={filteredMonsters} />
+        <CardList cats={filteredCats} />
       </div>
     );
   }

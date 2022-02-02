@@ -8,8 +8,8 @@
   color: #ccbe00;
 }
 .title > span{
-  box-shadow: 1px 1px 20px 8px #ccbe00;
-  background: rgb(121, 18, 190);
+  box-shadow: 0px 1px 50px 12px #ccbe00;
+  background: linear-gradient(200deg, rgba(153, 0, 255, 0.9), rgba(81, 17, 121, 0.8));
   padding: 1rem;
   border-radius: 5px;
 }
